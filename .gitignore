@@ -1,0 +1,40 @@
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.egg-info/
+.venv/
+venv/
+
+# Environment & secrets
+.env
+.env.local
+
+# Node
+node_modules/
+.next/
+dist/
+build/
+
+# IDE & OS
+.DS_Store
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# Claude
+.claude/
+
+# Playwright
+.playwright-mcp/
+
+# Generated docs (keep source, not output)
+generate_submission_doc.py
+Sovereign_Breach_Hackathon_Submission.docx
+Sovereign_Breach_Hackathon_Submission.pdf
+
+# Screenshots
+*.png
+*.jpeg
+breach-page.png

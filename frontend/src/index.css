@@ -1,0 +1,274 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+body {
+  margin: 0;
+  background: #0a0a0f;
+  color: #e2e8f0;
+  font-family: 'JetBrains Mono', 'Fira Code', monospace;
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar { width: 6px; }
+::-webkit-scrollbar-track { background: #1a1a2e; }
+::-webkit-scrollbar-thumb { background: #4a1942; border-radius: 3px; }
+
+/* Glowing border animation */
+@keyframes glow-pulse {
+  0%, 100% { box-shadow: 0 0 5px rgba(139, 92, 246, 0.3); }
+  50% { box-shadow: 0 0 20px rgba(139, 92, 246, 0.6); }
+}
+
+.glow-border {
+  animation: glow-pulse 2s ease-in-out infinite;
+}
+
+/* Terminal / Chat text animation */
+@keyframes typewriter {
+  from { opacity: 0; transform: translateY(4px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.terminal-line {
+  animation: typewriter 0.3s ease-out;
+}
+
+/* Trust meter gradient */
+.trust-gradient-high { background: linear-gradient(90deg, #10b981, #34d399); }
+.trust-gradient-medium { background: linear-gradient(90deg, #f59e0b, #fbbf24); }
+.trust-gradient-low { background: linear-gradient(90deg, #ef4444, #f87171); }
+.trust-gradient-critical { background: linear-gradient(90deg, #dc2626, #991b1b); }
+
+/* ===== Breach & Visual Polish ===== */
+
+@keyframes breach-flash {
+  0% { opacity: 0.5; }
+  30% { opacity: 0.3; }
+  100% { opacity: 0; }
+}
+
+@keyframes slide-down {
+  from { opacity: 0; transform: translateY(-30px) scale(0.95); }
+  to { opacity: 1; transform: translateY(0) scale(1); }
+}
+
+@keyframes breach-pulse {
+  0% { box-shadow: 0 0 0 0 rgba(239, 68, 68, 0.7); }
+  50% { box-shadow: 0 0 0 12px rgba(239, 68, 68, 0); }
+  100% { box-shadow: 0 0 0 0 rgba(239, 68, 68, 0); }
+}
+
+@keyframes flow {
+  from { transform: translateX(-100%); }
+  to { transform: translateX(400%); }
+}
+
+@keyframes gradient-shift {
+  0%, 100% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+}
+
+@keyframes scan-line {
+  0% { transform: translateY(-100%); }
+  100% { transform: translateY(100vh); }
+}
+
+.cyber-grid {
+  background-image:
+    linear-gradient(rgba(139, 92, 246, 0.03) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(139, 92, 246, 0.03) 1px, transparent 1px);
+  background-size: 40px 40px;
+}
+
+.gradient-text {
+  background: linear-gradient(135deg, #8b5cf6, #ef4444, #8b5cf6);
+  background-size: 200% auto;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  animation: gradient-shift 3s ease-in-out infinite;
+}
+
+@keyframes screen-shake {
+  0%, 100% { transform: translate(0); }
+  10% { transform: translate(-2px, -1px); }
+  20% { transform: translate(2px, 1px); }
+  30% { transform: translate(-1px, 2px); }
+  40% { transform: translate(1px, -1px); }
+  50% { transform: translate(-2px, 1px); }
+  60% { transform: translate(2px, -1px); }
+  70% { transform: translate(-1px, -2px); }
+  80% { transform: translate(1px, 2px); }
+  90% { transform: translate(-1px, 1px); }
+}
+
+.shake {
+  animation: screen-shake 0.5s ease-in-out;
+}
+
+/* ===== Voice Agent Visualization ===== */
+
+/* Orb ring idle breathing — slow, layered, organic */
+@keyframes orb-breathe {
+  0%, 100% {
+    transform: scale(1);
+    opacity: 0.25;
+  }
+  50% {
+    transform: scale(1.06);
+    opacity: 0.45;
+  }
+}
+
+/* Orb ring active speaking — faster, irregular pulse */
+@keyframes orb-speak {
+  0% {
+    transform: scale(1);
+    opacity: 0.35;
+  }
+  20% {
+    transform: scale(1.14);
+    opacity: 0.85;
+  }
+  40% {
+    transform: scale(1.03);
+    opacity: 0.5;
+  }
+  60% {
+    transform: scale(1.18);
+    opacity: 0.9;
+  }
+  80% {
+    transform: scale(1.06);
+    opacity: 0.55;
+  }
+  100% {
+    transform: scale(1);
+    opacity: 0.35;
+  }
+}
+
+/* Core glow for infiltrator (red) */
+@keyframes core-glow-red {
+  0%, 100% {
+    box-shadow: 0 0 12px rgba(239, 68, 68, 0.2),
+                inset 0 0 12px rgba(239, 68, 68, 0.08);
+  }
+  50% {
+    box-shadow: 0 0 35px rgba(239, 68, 68, 0.55),
+                inset 0 0 20px rgba(239, 68, 68, 0.15);
+  }
+}
+
+/* Core glow for target (blue) */
+@keyframes core-glow-blue {
+  0%, 100% {
+    box-shadow: 0 0 12px rgba(59, 130, 246, 0.2),
+                inset 0 0 12px rgba(59, 130, 246, 0.08);
+  }
+  50% {
+    box-shadow: 0 0 35px rgba(59, 130, 246, 0.55),
+                inset 0 0 20px rgba(59, 130, 246, 0.15);
+  }
+}
+
+/* Waveform bar animation — uses CSS vars for per-bar variation */
+@keyframes waveform-bar {
+  0%, 100% { height: 15%; }
+  20% { height: var(--bar-h1, 70%); }
+  40% { height: var(--bar-h2, 30%); }
+  60% { height: var(--bar-h3, 85%); }
+  80% { height: var(--bar-h4, 45%); }
+}
+
+/* Waveform overload on breach — rapid chaotic spikes */
+@keyframes waveform-overload {
+  0% { height: 20%; }
+  8% { height: 100%; }
+  16% { height: 8%; }
+  24% { height: 95%; }
+  32% { height: 12%; }
+  40% { height: 100%; }
+  48% { height: 5%; }
+  56% { height: 88%; }
+  64% { height: 15%; }
+  72% { height: 100%; }
+  80% { height: 10%; }
+  88% { height: 92%; }
+  100% { height: 20%; }
+}
+
+/* Breach: Target orb shatters — blue to red, scale burst */
+@keyframes orb-shatter {
+  0% {
+    transform: scale(1);
+    border-color: rgba(59, 130, 246, 0.6);
+    box-shadow: 0 0 20px rgba(59, 130, 246, 0.3);
+  }
+  20% {
+    transform: scale(1.35);
+    border-color: rgba(239, 68, 68, 0.95);
+    box-shadow: 0 0 60px rgba(239, 68, 68, 0.8);
+  }
+  40% {
+    transform: scale(0.88);
+  }
+  60% {
+    transform: scale(1.18);
+    box-shadow: 0 0 45px rgba(239, 68, 68, 0.6),
+                0 0 80px rgba(239, 68, 68, 0.25);
+  }
+  100% {
+    transform: scale(1.05);
+    border-color: rgba(239, 68, 68, 0.8);
+    box-shadow: 0 0 30px rgba(239, 68, 68, 0.5);
+  }
+}
+
+/* Breach: Rings explode outward and vanish */
+@keyframes orb-ring-explode {
+  0% {
+    transform: scale(1);
+    opacity: 0.6;
+  }
+  40% {
+    transform: scale(2.2);
+    opacity: 0.8;
+    border-color: rgba(239, 68, 68, 0.9);
+  }
+  100% {
+    transform: scale(3.5);
+    opacity: 0;
+  }
+}
+
+/* Data flow particles — left to right */
+@keyframes data-particle-lr {
+  0% { left: 0%; opacity: 0; }
+  10% { opacity: 1; }
+  90% { opacity: 1; }
+  100% { left: 100%; opacity: 0; }
+}
+
+/* Data flow particles — right to left */
+@keyframes data-particle-rl {
+  0% { right: 0%; opacity: 0; }
+  10% { opacity: 1; }
+  90% { opacity: 1; }
+  100% { right: 100%; opacity: 0; }
+}
+
+/* Live transcript fade in with blur */
+@keyframes transcript-fade-in {
+  from {
+    opacity: 0;
+    transform: translateY(4px);
+    filter: blur(3px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+    filter: blur(0);
+  }
+}

@@ -4,7 +4,6 @@
 
 AgentProbe deploys a coordinated team of 4 AI agents that autonomously discover, exploit, and report security vulnerabilities in tool-augmented AI systems through multi-turn adversarial dialogue.
 
-> **2nd Place** at the Heriot-Watt / Rabbitron / Anyx AI Agents Hackathon
 
 ---
 
